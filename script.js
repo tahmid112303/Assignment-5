@@ -30,7 +30,7 @@ for(let btn of copyButtons){
         input.select()
         document.execCommand("copy")
         document.body.removeChild(input)
-        alert("Number copied")
+        alert("Phone Number copied")
     })
 }
 
@@ -41,7 +41,7 @@ let numberOfCoins=document.getElementById("number_of_coins")
 
 for(let button of callButtons){
     button.addEventListener('click', function(){
-        if(parseInt(numberOfCoins.innerText)===0){
+        if(parseInt(numberOfCoins.innerText)<20){
             alert("You can't call! Insufficient Coins.")
         }else{
             let parent=this.closest(".box")
@@ -72,9 +72,14 @@ for(let button of callButtons){
 
 const clearButton=document.getElementById("clear_btn")
 const entries = document.querySelectorAll(".history-item");
+
 clearButton.addEventListener('click', function(){
-    entries.innerHTML=""
-})
+    const entries = document.querySelectorAll("#call-records .history-item"); 
+    for(let entry of entries){
+        entry.remove()
+    }
+});
+
 
 
 
